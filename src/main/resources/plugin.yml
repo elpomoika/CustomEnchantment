@@ -1,0 +1,7 @@
+name: CustomEnchantment
+version: '${version}'
+main: org.elpomoika.customenchantment.CustomEnchantment
+api-version: '1.19'
+
+commands:
+  give-pickaxe: {}
