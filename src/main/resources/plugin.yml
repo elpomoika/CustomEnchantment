@@ -2,6 +2,9 @@ name: CustomEnchantment
 version: '${version}'
 main: org.elpomoika.customenchantment.CustomEnchantment
 api-version: '1.19'
+depend: [WorldGuard]
 
 commands:
-  give-pickaxe: {}
+  custom-enchant:
+    permission: "customenchant.admin"
+    permission-message: "&cYou don't have permission to do that"

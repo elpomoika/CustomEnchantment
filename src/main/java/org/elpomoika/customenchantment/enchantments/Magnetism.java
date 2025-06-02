@@ -19,55 +19,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-public class UltraPickaxe extends Enchantment {
+public class Magnetism extends Enchantment {
 
-    public UltraPickaxe(String name) {
+    public Magnetism(@NotNull String name) {
         super(NamespacedKey.minecraft(name));
     }
 
     @Override
-    public boolean canEnchantItem(ItemStack item) {
-        return item.getType() == Material.DIAMOND_PICKAXE ||
-                item.getType() == Material.IRON_PICKAXE ||
-                item.getType() == Material.GOLDEN_PICKAXE ||
-                item.getType() == Material.NETHERITE_PICKAXE ||
-                item.getType() == Material.STONE_PICKAXE ||
-                item.getType() == Material.WOODEN_PICKAXE;
-    }
-
-    @Override
-    public @NotNull Component displayName(int i) {
-        return Component.text("§6Бур I", NamedTextColor.GOLD);
-    }
-
-    @Override
-    public boolean isTradeable() {
-        return false;
-    }
-
-    @Override
-    public boolean isDiscoverable() {
-        return false;
-    }
-
-    @Override
-    public @NotNull EnchantmentRarity getRarity() {
-        return EnchantmentRarity.RARE;
-    }
-
-    @Override
-    public float getDamageIncrease(int i, @NotNull EntityCategory entityCategory) {
-        return 0;
-    }
-
-    @Override
-    public @NotNull Set<EquipmentSlot> getActiveSlots() {
-        return null;
-    }
-
-    @Override
     public @NotNull String getName() {
-        return "Бур I";
+        return "Магнетизм";
     }
 
     @Override
@@ -101,6 +61,46 @@ public class UltraPickaxe extends Enchantment {
     }
 
     @Override
+    public boolean canEnchantItem(@NotNull ItemStack item) {
+        return item.getType() == Material.DIAMOND_PICKAXE ||
+                item.getType() == Material.IRON_PICKAXE ||
+                item.getType() == Material.GOLDEN_PICKAXE ||
+                item.getType() == Material.NETHERITE_PICKAXE ||
+                item.getType() == Material.STONE_PICKAXE ||
+                item.getType() == Material.WOODEN_PICKAXE;
+    }
+
+    @Override
+    public @NotNull Component displayName(int i) {
+        return Component.text("§6Магнетизм", NamedTextColor.GOLD);
+    }
+
+    @Override
+    public boolean isTradeable() {
+        return false;
+    }
+
+    @Override
+    public boolean isDiscoverable() {
+        return false;
+    }
+
+    @Override
+    public @NotNull EnchantmentRarity getRarity() {
+        return EnchantmentRarity.RARE;
+    }
+
+    @Override
+    public float getDamageIncrease(int i, @NotNull EntityCategory entityCategory) {
+        return 0;
+    }
+
+    @Override
+    public @NotNull Set<EquipmentSlot> getActiveSlots() {
+        return null;
+    }
+
+    @Override
     public @NotNull String translationKey() {
         return null;
     }
@@ -108,12 +108,13 @@ public class UltraPickaxe extends Enchantment {
     public void applyEnchant(ItemStack item) {
         ItemMeta meta = item.getItemMeta();
 
+
         if (meta != null) {
             List<String> lore = new ArrayList<>();
             if(meta.hasLore()){
                 lore = meta.getLore();
             }
-            lore.add(ChatColor.translateAlternateColorCodes('&', "&7Бур I"));
+            lore.add(ChatColor.translateAlternateColorCodes('&', "&7Магнетизм"));
             meta.setLore(lore);
             item.setItemMeta(meta);
 
@@ -127,8 +128,6 @@ public class UltraPickaxe extends Enchantment {
 
         ItemMeta toolMeta = tool.getItemMeta();
 
-        if (!toolMeta.hasEnchant(this)) return false;
-
-        return true;
+        return toolMeta.hasEnchant(this);
     }
 }

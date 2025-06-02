@@ -1,0 +1,8 @@
+is-allowed-by-block: true
+allowed-block-to-break:
+  - "DIAMOND_ORE"
+
+
+is-ignored-by-regions: false
+ignored-regions:
+  - "spawnloc"

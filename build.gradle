@@ -1,5 +1,19 @@
 plugins {
     id 'java'
+    id 'dev.zornov.uploader' version '1.3'
+}
+
+uploader {
+    enabled = true
+
+    sftp {
+        host = '${SFTP_HOST}'
+        port = 7477
+        username = "rs1.joinserver.xyz"
+        password = '${SFTP_PASS}'
+        fileName = "CustomEnchantment-1.0.jar"
+        remote = "plugins/CustomEnchantment-1.0.jar"
+    }
 }
 
 group = 'org.elpomoika'
@@ -15,10 +29,14 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        url "https://maven.enginehub.org/repo/"
+    }
 }
 
 dependencies {
     compileOnly "io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT"
+    compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.1-SNAPSHOT'
 }
 
 def targetJavaVersion = 17
